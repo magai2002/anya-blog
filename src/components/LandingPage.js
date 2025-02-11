@@ -1,77 +1,8 @@
-// import React, { useState, useEffect } from 'react';
-// import { auth } from '../firebase';
-// import { onAuthStateChanged, signOut } from 'firebase/auth';
-// import { useNavigate } from 'react-router-dom';
-
-// const LandingPage = () => {
-//   const [user, setUser] = useState(null);
-//   const navigate = useNavigate();
-
-//   // Monitor authentication state
-//   useEffect(() => {
-//     const unsubscribe = onAuthStateChanged(auth, (user) => {
-//       if (user) {
-//         setUser(user);
-//       } else {
-//         setUser(null);
-//       }
-//     });
-//     return () => unsubscribe();
-//   }, []);
-
-//   // Handle sign out
-//   const handleSignOut = async () => {
-//     try {
-//       await signOut(auth);
-//       setUser(null);
-//       navigate('/');  // Redirect to landing page after sign out
-//     } catch (error) {
-//       console.error("Error signing out:", error);
-//     }
-//   };
-
-//   return (
-//     <div className="min-h-screen bg-gray-100">
-//       {/* Hero Section */}
-//       <section
-//         className="flex flex-col justify-center items-center text-center py-20 bg-cover bg-center"
-//         style={{ backgroundImage: "url('https://via.placeholder.com/1500x800')" }}
-//       >
-//         <h1 className="text-5xl font-bold text-white">Welcome to My Blog</h1>
-//         <p className="text-xl text-gray-200 mt-4">
-//           Sharing insights, stories, and thoughts on various topics
-//         </p>
-//         <button onClick={() => navigate('/blog')} className="btn-primary mt-8">
-//           Explore Posts
-//         </button>
-//       </section>
-
-//       {/* Features Section */}
-//       <section className="container mx-auto py-12">
-//         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-//           <div className="text-center p-6 bg-white shadow-md">
-//             <h2 className="text-2xl font-semibold mb-2">Thoughtful Content</h2>
-//             <p>Read in-depth articles on various topics and stay informed with the latest insights.</p>
-//           </div>
-//           <div className="text-center p-6 bg-white shadow-md">
-//             <h2 className="text-2xl font-semibold mb-2">Engaging Stories</h2>
-//             <p>Explore compelling stories and ideas that inspire and entertain.</p>
-//           </div>
-//           <div className="text-center p-6 bg-white shadow-md">
-//             <h2 className="text-2xl font-semibold mb-2">Join the Conversation</h2>
-//             <p>Sign up to leave comments and participate in discussions.</p>
-//           </div>
-//         </div>
-//       </section>
-//     </div>
-//   );
-// };
-
-// export default LandingPage;
 import React, { useState, useEffect } from 'react';
 import { auth } from '../firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import bgImage from '../assets/cat.jpg';
 
 const LandingPage = () => {
   const [user, setUser] = useState(null);
@@ -105,11 +36,11 @@ const LandingPage = () => {
       {/* Hero Section */}
       <section
         className="flex flex-col justify-center items-center text-center py-20 bg-cover bg-center"
-        style={{ backgroundImage: "url('https://via.placeholder.com/1500x800')" }}
+        style={{ backgroundImage: `url(${bgImage})`, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", height: "800px"}}
       >
         <div className="bg-black bg-opacity-50 px-8 py-12 rounded-lg max-w-4xl">
           <h1 className="text-5xl font-bold text-white mb-6">
-            Welcome to <span className="text-yellow-600">My Blog</span>
+            Welcome to <span className="text-yellow-600">Annie Reviews</span>
           </h1>
           <p className="text-lg text-gray-200 mb-8">
             Sharing insights, stories, and thoughts on various topics.
